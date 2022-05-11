@@ -1,2 +1,1 @@
-# my-portfolio
-A modern mobile/web portfolio app made with React, SCSS &amp; Sanity.
+This is the code repository for the corresponding portfolio app.
