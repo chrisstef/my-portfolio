@@ -97,7 +97,7 @@ const Footer = () => {
         </div>
       ) : (
         <div>
-          <h3 className="head-text">Thank's🙏 <br /> I will keep you posted!</h3>
+          <h3 className="head-text">Thank you🙏 <br /> I will keep you posted!</h3>
         </div>
       )}
     </>

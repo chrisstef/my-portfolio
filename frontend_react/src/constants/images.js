@@ -25,6 +25,9 @@ import fiverr from "../assets/fiverr.png";
 import whatsapp from "../assets/whatsapp.png";
 import ganache from "../assets/ganache.png";
 import robots from "../assets/robots.png";
+import matic from "../assets/matic.png";
+import metis from "../assets/metis.png";
+import meter from "../assets/meter.png";
 
 import about01 from "../assets/about01.png";
 import about02 from "../assets/about02.png";
@@ -106,5 +109,8 @@ export default {
   fiverr,
   whatsapp,
   ganache,
-  robots
+  robots,
+  matic,
+  meter,
+  metis,
 };
