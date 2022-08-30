@@ -34,7 +34,7 @@ const Header = () => (
         </div>
 
         <div className="tag-cmp app__flex">
-          <p className="p-text">I am a <strong>full-stack</strong> developer with an <br/> affinity for <strong>blockchain & web 3.0.</strong></p>
+          <p className="p-text">I am a <strong>software</strong> developer with an <br/> affinity for <strong>blockchain & web 3.0.</strong></p>
         </div>
         <div className="tag-cmp app__flex">
           <p className="p-text">I enjoy creating <strong>interactive</strong> <br /> and <strong>functional</strong> interfaces, <br /> bringing products to life.</p>
