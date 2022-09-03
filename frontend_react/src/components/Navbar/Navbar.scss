@@ -95,6 +95,7 @@
   &:hover {
     background-color: #5932c4;
     transition: all 0.3s ease-in;
+    cursor: pointer;
   }
 
   &:not(:hover) {
@@ -105,10 +106,6 @@
     width: 70%;
     height: 70%;
     color: var(--white-color);
-
-    &:hover {
-      cursor: pointer;
-    }
   }
 
   div {
