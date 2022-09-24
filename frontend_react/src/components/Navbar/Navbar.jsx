@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <a href='/#home' onClick={() => setToggle(true)}>
+        <a href='/#home' onClick={() => setToggle(false)}>
           <img src={images.logo} alt="logo" />
         </a>
       </div>
