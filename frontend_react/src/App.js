@@ -14,7 +14,7 @@ const App = () => {
       <Testimonial />
       <Footer />
       <div className="footer">
-        <p>Created with 💜 and React <br /> @2022 KAI</p>
+        <p>Copyright © 2022 KAI | All Rights Reserved.</p>
       </div>
     </div>
   );
