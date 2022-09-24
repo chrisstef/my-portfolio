@@ -59,11 +59,11 @@
 }
 
 .app__footer-cards .app__footer-card:last-child {
-  background-color: #f2f7fb;
+  background-color: #e3fbeb;
 }
 
 .app__footer-cards .app__footer-card:last-child:hover {
-  box-shadow: 0 0 25px #f2f7fb;
+  box-shadow: 0 0 25px #ddf9e7;
 }
 
 .app__footer-form {
@@ -119,13 +119,13 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #5932c4;
+      background-color: #541bf3;
       transition: all 0.3s ease-in-out;
     }
 
     &:not(:hover) {
       transition: all 0.3s ease-in-out;
-      box-shadow: 0px 0px 40px -18px var(--secondary-color);
+      box-shadow: 0px 0px 30px -18px #541bf3;
     }
   }
 
