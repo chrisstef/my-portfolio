@@ -180,12 +180,8 @@
     object-fit: contain;
     z-index: 1;
   }
-  img[src*="png"] {
-    transform: translateY(0px);
-    animation: float 3s ease-in-out infinite;
-  }
 
-  img[src*="svg"] {
+  img[src*="png"] {
     transform: translateY(0px);
     animation: float 3s ease-in-out infinite;
   }
