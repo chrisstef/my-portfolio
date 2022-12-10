@@ -14,5 +14,11 @@ export default {
       type: "array",
       of: [{ type: "workExperience" }],
     },
+    {
+      name: "order",
+      title: "Order",
+      type: "number",
+      hidden: true,
+    },
   ],
 };

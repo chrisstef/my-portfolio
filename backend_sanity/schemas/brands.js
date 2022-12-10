@@ -16,5 +16,10 @@ export default {
       title: "Name",
       type: "string",
     },
+    {
+      name: "brandLink",
+      title: "Brand Link",
+      type: "string",
+    },
   ],
 };
