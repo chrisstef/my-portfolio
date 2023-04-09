@@ -53,12 +53,6 @@ const Footer = () => {
             xristostefanis@gmail.com
           </a>
         </div>
-        <div className="app__footer-card">
-          <img src={images.whatsapp} alt="phone" />
-          <a href="tel:+30 698 674 1311" className="p-text">
-            +30 698 674 1311
-          </a>
-        </div>
       </div>
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
@@ -97,7 +91,9 @@ const Footer = () => {
         </div>
       ) : (
         <div>
-          <h3 className="head-text">Thank you🙏 <br /> I will keep you posted!</h3>
+          <h3 className="head-text">
+            Thank you🙏 <br /> I will keep you posted!
+          </h3>
         </div>
       )}
     </>
