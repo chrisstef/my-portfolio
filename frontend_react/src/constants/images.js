@@ -7,11 +7,11 @@ import circle from "../assets/circle.svg";
 import logo from "../assets/logo.png";
 
 export default {
-  email,
-  solidity,
-  python,
-  react,
-  profile,
-  circle,
-  logo,
+    email,
+    solidity,
+    python,
+    react,
+    profile,
+    circle,
+    logo,
 };
