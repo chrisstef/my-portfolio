@@ -40,15 +40,17 @@ const Skills = () => {
                                 className="app__flex"
                                 style={{ backgroundColor: skill.bgColor }}
                             >
-                                <img src={urlFor(skill.icon)} alt={skill.name} />
+                                <img
+                                    src={urlFor(skill.icon)}
+                                    alt={skill.name}
+                                />
                             </div>
                             <p className="p-text">{skill.name}</p>
                         </motion.div>
                     ))}
-
                 </div>
                 <div className="app__skills-exp">
-                    {experiences.map((experience, index) => (
+                    {experiences?.map((experience, index) => (
                         <motion.div
                             className="app__skills-exp-item"
                             key={`experience-${index}`}
@@ -66,8 +68,12 @@ const Skills = () => {
                                             data-tip
                                             data-for={work.name}
                                         >
-                                            <h4 className="bold-text">{work.name}</h4>
-                                            <p className="p-text">{work.company}</p>
+                                            <span className="bold-text">
+                                                {work.name}
+                                            </span>
+                                            <p className="p-text">
+                                                {work.company}
+                                            </p>
                                         </motion.div>
                                         <ReactTooltip
                                             id={work.name}
@@ -82,7 +88,6 @@ const Skills = () => {
                             </motion.div>
                         </motion.div>
                     ))}
-
                 </div>
             </div>
         </>
