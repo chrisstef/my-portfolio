@@ -5,6 +5,7 @@ import react from "../assets/react.png";
 import profile from "../assets/profile.png";
 import circle from "../assets/circle.svg";
 import logo from "../assets/logo.png";
+import next from "../assets/next.svg";
 
 export default {
     email,
@@ -14,4 +15,5 @@ export default {
     profile,
     circle,
     logo,
+    next,
 };
