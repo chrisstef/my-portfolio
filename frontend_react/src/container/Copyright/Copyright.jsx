@@ -5,7 +5,7 @@ const Copyright = () => {
     return (
         <div className="footer">
             <p>
-                Copyright © 2022{" "}
+                Copyright © {new Date().getFullYear()}&nbsp;
                 <a
                     href="https://github.com/chrisstef"
                     target="_blank"
