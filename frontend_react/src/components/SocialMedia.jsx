@@ -15,7 +15,7 @@ const SocialMedia = () => (
         </div>
         <div>
             <a
-                href="https://www.linkedin.com/in/christos-stefanis/"
+                href="https://www.linkedin.com/in/christos-stefanis"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn Profile"
