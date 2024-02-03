@@ -1,18 +1,16 @@
 import email from "../assets/email.png";
 import solidity from "../assets/solidity.png";
 import python from "../assets/python.png";
-import react from "../assets/react.png";
-import profile from "../assets/profile.png";
+import hero from "../assets/profile.webp";
 import circle from "../assets/circle.svg";
 import logo from "../assets/logo.png";
-import next from "../assets/next.svg";
+import next from "../assets/next-js.svg";
 
 export default {
     email,
     solidity,
     python,
-    react,
-    profile,
+    hero,
     circle,
     logo,
     next,
