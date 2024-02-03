@@ -59,6 +59,7 @@
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: column;
+    flex-wrap: wrap;
 
     .badge-cmp,
     .tag-cmp {
@@ -79,6 +80,14 @@
             width: 100%;
             text-align: left;
             font-size: 0.9rem;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .tag-cmp {
+            p {
+                white-space: nowrap;
+            }
         }
     }
 

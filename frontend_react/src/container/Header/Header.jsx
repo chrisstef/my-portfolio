@@ -35,14 +35,16 @@ const Header = () => (
 
                 <div className="tag-cmp app__flex">
                     <p className="p-text">
-                        I am a <strong>software</strong> developer with an
-                        <br /> affinity for <strong>blockchain & Web3.</strong>
+                        I am a Software Developer with a
+                        <br /> passion for <strong>blockchain</strong> &{" "}
+                        <strong>Web3</strong> <br /> technologies.
                     </p>
                 </div>
                 <div className="tag-cmp app__flex">
                     <p className="p-text">
-                        I enjoy creating <strong>interactive</strong> <br />
-                        interfaces, bringing products to life.
+                        I enjoy transforming ideas into
+                        <strong> functional</strong> <br /> software that
+                        exceeds expectations.
                     </p>
                 </div>
             </div>
