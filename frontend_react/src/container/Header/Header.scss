@@ -178,7 +178,7 @@
     }
   }
 
-  img[src*="png"] {
+  img[src*="webp"] {
     transform: translateY(0px);
     animation: float 3s ease-in-out infinite;
   }
