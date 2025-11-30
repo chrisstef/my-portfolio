@@ -34,7 +34,8 @@ const Header = () => (
           <p className="p-text">
             I am a Software Developer with a
             <br /> passion for <strong>Frontend</strong> &{" "}
-            <strong>blockchain</strong> <br /> technologies.
+            <strong>Blockchain</strong>,<br /> building the future one line of
+            code at a time.
           </p>
         </div>
         <div className="tag-cmp app__flex">

@@ -7,7 +7,7 @@ import circle from "../assets/circle.svg";
 import logo from "../assets/logo.webp";
 import next from "../assets/next-js.svg";
 
-export default {
+const images = {
   email,
   solidity,
   python,
@@ -17,3 +17,5 @@ export default {
   logo,
   next,
 };
+
+export default images;
