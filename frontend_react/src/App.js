@@ -1,5 +1,12 @@
-import React from "react";
-import { About, Footer, Header, Skills, Testimonial, Work, Copyright } from "./container";
+import {
+  About,
+  Footer,
+  Header,
+  Skills,
+  Testimonial,
+  Work,
+  Copyright,
+} from "./container";
 import { Navbar } from "./components";
 import "./App.scss";
 
