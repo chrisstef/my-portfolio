@@ -4,7 +4,7 @@
   --font-base: "DM Sans", sans-serif;
 
   --primary-color: #f5f9ff;
-  --secondary-color: #6F3FF5;
+  --secondary-color: #6f3ff5;
   --black-color: #030303;
   --lightGray-color: #e4e4e4;
   --gray-color: #5b6478;
@@ -22,4 +22,3 @@
 body::-webkit-scrollbar {
   display: none;
 }
-
