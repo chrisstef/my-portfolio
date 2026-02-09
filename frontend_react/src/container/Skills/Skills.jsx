@@ -11,23 +11,40 @@ const Skills = () => {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    const query = '*[_type == "experiences"]';
-    const skillsQuery = '*[_type == "skills"]';
-
-    Promise.all([client.fetch(query), client.fetch(skillsQuery)]).then(
-      ([experiencesData, skillsData]) => {
-        const experiencesWithEndYear = experiencesData.map((exp) => {
-          const years = exp.year.split(" - ").map((y) => y.trim());
-          const endYear = parseInt(years[1] || years[0], 10);
-          return { ...exp, endYear };
-        });
-
-        experiencesWithEndYear.sort((a, b) => b.endYear - a.endYear);
+    const fetchData = async () => {
+      try {
+        const experiencesData = await client.fetch('*[_type == "experiences"]');
+        const skillsData = await client.fetch('*[_type == "skills"]');
+        const experiencesWithEndYear = experiencesData
+          .map((exp) => {
+            const years = exp.year.split(" - ").map((y) => y.trim());
+            const endYear = parseInt(years[1] || years[0], 10);
+            const uniqueWorks = exp.works.filter(
+              (work, index, self) =>
+                index ===
+                self.findIndex(
+                  (w) => w.name === work.name && w.company === work.company
+                )
+            );
+            return { ...exp, endYear, works: uniqueWorks };
+          })
+          .filter(
+            (exp, index, self) =>
+              index ===
+              self.findIndex(
+                (e) => e.company === exp.company && e.year === exp.year
+              )
+          )
+          .sort((a, b) => b.endYear - a.endYear);
 
         setExperiences(experiencesWithEndYear);
         setSkills(skillsData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    );
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -36,12 +53,12 @@ const Skills = () => {
 
       <div className="app__skills-container">
         <div className="app__skills-list">
-          {skills?.map((skill, index) => (
+          {skills?.map((skill) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
               className="app__skills-item app__flex"
-              key={`skill-${index}`}
+              key={skill.name}
             >
               <div
                 className="app__flex"
@@ -53,30 +70,32 @@ const Skills = () => {
             </motion.div>
           ))}
         </div>
+
         <div className="app__skills-exp">
-          {experiences?.map((experience, index) => (
+          {experiences?.map((experience) => (
             <motion.div
               className="app__skills-exp-item"
-              key={`experience-${index}`}
+              key={`${experience.company}-${experience.year}`}
             >
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
               </div>
+
               <motion.div className="app__skills-exp-works">
-                {experience.works.map((work, index) => (
-                  <React.Fragment key={`work-${index}`}>
+                {experience.works.map((work) => (
+                  <React.Fragment key={`${work.name}-${work.company}`}>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
                       transition={{ duration: 0.5 }}
                       className="app__skills-exp-work"
                       data-tip
-                      data-for={work.name}
+                      data-for={`${work.name}-${work.company}`}
                     >
                       <span className="bold-text">{work.name}</span>
                       <p className="p-text">{work.company}</p>
                     </motion.div>
                     <ReactTooltip
-                      id={work.name}
+                      id={`${work.name}-${work.company}`}
                       effect="solid"
                       arrowColor="#fff"
                       className="skills-tooltip"
