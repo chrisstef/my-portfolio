@@ -7,95 +7,95 @@ import { urlFor, client } from "../../client";
 import "./Skills.scss";
 
 const Skills = () => {
-    const [experiences, setExperiences] = useState([]);
-    const [skills, setSkills] = useState([]);
+  const [experiences, setExperiences] = useState([]);
+  const [skills, setSkills] = useState([]);
 
-    useEffect(() => {
-        const query = '*[_type == "experiences"]';
-        const skillsQuery = '*[_type == "skills"]';
+  useEffect(() => {
+    const query = '*[_type == "experiences"]';
+    const skillsQuery = '*[_type == "skills"]';
 
-        client.fetch(query).then((data) => {
-            setExperiences(data);
+    Promise.all([client.fetch(query), client.fetch(skillsQuery)]).then(
+      ([experiencesData, skillsData]) => {
+        const experiencesWithEndYear = experiencesData.map((exp) => {
+          const years = exp.year.split(" - ").map((y) => y.trim());
+          const endYear = parseInt(years[1] || years[0], 10);
+          return { ...exp, endYear };
         });
 
-        client.fetch(skillsQuery).then((data) => {
-            setSkills(data);
-        });
-    }, []);
+        experiencesWithEndYear.sort((a, b) => b.endYear - a.endYear);
 
-    return (
-        <>
-            <h2 className="head-text">Skills & Experiences</h2>
-
-            <div className="app__skills-container">
-                <div className="app__skills-list">
-                    {skills?.map((skill, index) => (
-                        <motion.div
-                            whileInView={{ opacity: [0, 1] }}
-                            transition={{ duration: 0.5 }}
-                            className="app__skills-item app__flex"
-                            key={`skill-${index}`}
-                        >
-                            <div
-                                className="app__flex"
-                                style={{ backgroundColor: skill.bgColor }}
-                            >
-                                <img
-                                    src={urlFor(skill.icon)}
-                                    alt={skill.name}
-                                />
-                            </div>
-                            <p className="p-text">{skill.name}</p>
-                        </motion.div>
-                    ))}
-                </div>
-                <div className="app__skills-exp">
-                    {experiences?.map((experience, index) => (
-                        <motion.div
-                            className="app__skills-exp-item"
-                            key={`experience-${index}`}
-                        >
-                            <div className="app__skills-exp-year">
-                                <p className="bold-text">{experience.year}</p>
-                            </div>
-                            <motion.div className="app__skills-exp-works">
-                                {experience.works.map((work, index) => (
-                                    <React.Fragment key={`work-${index}`}>
-                                        <motion.div
-                                            whileInView={{ opacity: [0, 1] }}
-                                            transition={{ duration: 0.5 }}
-                                            className="app__skills-exp-work"
-                                            data-tip
-                                            data-for={work.name}
-                                        >
-                                            <span className="bold-text">
-                                                {work.name}
-                                            </span>
-                                            <p className="p-text">
-                                                {work.company}
-                                            </p>
-                                        </motion.div>
-                                        <ReactTooltip
-                                            id={work.name}
-                                            effect="solid"
-                                            arrowColor="#fff"
-                                            className="skills-tooltip"
-                                        >
-                                            {work.desc}
-                                        </ReactTooltip>
-                                    </React.Fragment>
-                                ))}
-                            </motion.div>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-        </>
+        setExperiences(experiencesWithEndYear);
+        setSkills(skillsData);
+      }
     );
+  }, []);
+
+  return (
+    <>
+      <h2 className="head-text">Skills & Experiences</h2>
+
+      <div className="app__skills-container">
+        <div className="app__skills-list">
+          {skills?.map((skill, index) => (
+            <motion.div
+              whileInView={{ opacity: [0, 1] }}
+              transition={{ duration: 0.5 }}
+              className="app__skills-item app__flex"
+              key={`skill-${index}`}
+            >
+              <div
+                className="app__flex"
+                style={{ backgroundColor: skill.bgColor }}
+              >
+                <img src={urlFor(skill.icon)} alt={skill.name} />
+              </div>
+              <p className="p-text">{skill.name}</p>
+            </motion.div>
+          ))}
+        </div>
+        <div className="app__skills-exp">
+          {experiences?.map((experience, index) => (
+            <motion.div
+              className="app__skills-exp-item"
+              key={`experience-${index}`}
+            >
+              <div className="app__skills-exp-year">
+                <p className="bold-text">{experience.year}</p>
+              </div>
+              <motion.div className="app__skills-exp-works">
+                {experience.works.map((work, index) => (
+                  <React.Fragment key={`work-${index}`}>
+                    <motion.div
+                      whileInView={{ opacity: [0, 1] }}
+                      transition={{ duration: 0.5 }}
+                      className="app__skills-exp-work"
+                      data-tip
+                      data-for={work.name}
+                    >
+                      <span className="bold-text">{work.name}</span>
+                      <p className="p-text">{work.company}</p>
+                    </motion.div>
+                    <ReactTooltip
+                      id={work.name}
+                      effect="solid"
+                      arrowColor="#fff"
+                      className="skills-tooltip"
+                    >
+                      {work.desc}
+                    </ReactTooltip>
+                  </React.Fragment>
+                ))}
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default AppWrap(
-    MotionWrap(Skills, "app__skills"),
-    "skills",
-    "app__whitebg"
+  MotionWrap(Skills, "app__skills"),
+  "skills",
+  "app__whitebg"
 );

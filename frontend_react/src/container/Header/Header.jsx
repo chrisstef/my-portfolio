@@ -25,24 +25,23 @@ const Header = () => (
         <div className="badge-cmp app__flex">
           <span>👋</span>
           <div style={{ marginLeft: 20 }}>
-            <p className="p-text">Hello, It's</p>
+            <p className="p-text">Hello, I'm</p>
             <h1 className="head-text">Chris</h1>
           </div>
+        </div>
+        <div className="tag-cmp app__flex">
+          <p className="p-text">
+            I’m a <strong>Frontend Engineer</strong> who enjoys shaping
+            thoughtful web experiences using <strong>React</strong>,{" "}
+            <strong>TypeScript</strong>, and modern frontend architecture.
+          </p>
         </div>
 
         <div className="tag-cmp app__flex">
           <p className="p-text">
-            I am a Software Developer with a
-            <br /> passion for <strong>Frontend</strong> &{" "}
-            <strong>Blockchain</strong>,<br /> building the future one line of
-            code at a time.
-          </p>
-        </div>
-        <div className="tag-cmp app__flex">
-          <p className="p-text">
-            I enjoy transforming ideas into
-            <strong> functional</strong> <br /> software that exceeds
-            expectations.
+            I care about <strong>design systems</strong>,{" "}
+            <strong>UI foundations</strong>, and the small details that make
+            products feel consistent and pleasant to use.
           </p>
         </div>
       </div>
